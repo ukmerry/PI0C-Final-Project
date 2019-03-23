@@ -20,6 +20,9 @@ public:
     explicit TicTacToe(QWidget *parent = nullptr);
     ~TicTacToe();
 
+private:
+    void text_initializer();
+
 private slots:
     void on_toolButton_11_clicked();
 
@@ -42,8 +45,8 @@ private slots:
 private:
     Ui::TicTacToe *ui;
 
-    bool flag;
-    array <array<bool, dem>, dem> grid;
+    int flag;
+    array <array<int, dem>, dem> grid;
 };
 
 #endif // TICTACTOE_H

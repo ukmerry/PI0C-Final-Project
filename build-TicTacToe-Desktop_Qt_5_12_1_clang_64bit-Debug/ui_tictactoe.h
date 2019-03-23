@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLCDNumber>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
@@ -37,6 +39,9 @@ public:
     QToolButton *toolButton_12;
     QToolButton *toolButton_22;
     QWidget *tab_2;
+    QLCDNumber *lcdNumber;
+    QLCDNumber *lcdNumber_2;
+    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -45,12 +50,12 @@ public:
     {
         if (TicTacToe->objectName().isEmpty())
             TicTacToe->setObjectName(QString::fromUtf8("TicTacToe"));
-        TicTacToe->resize(816, 552);
+        TicTacToe->resize(816, 576);
         centralWidget = new QWidget(TicTacToe);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(170, 0, 471, 451));
+        tabWidget->setGeometry(QRect(160, 0, 471, 451));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         toolButton_31 = new QToolButton(tab);
@@ -84,6 +89,19 @@ public:
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         tabWidget->addTab(tab_2, QString());
+        lcdNumber = new QLCDNumber(centralWidget);
+        lcdNumber->setObjectName(QString::fromUtf8("lcdNumber"));
+        lcdNumber->setGeometry(QRect(30, 220, 91, 61));
+        lcdNumber_2 = new QLCDNumber(centralWidget);
+        lcdNumber_2->setObjectName(QString::fromUtf8("lcdNumber_2"));
+        lcdNumber_2->setGeometry(QRect(670, 230, 91, 61));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(270, 450, 261, 71));
+        label->setLayoutDirection(Qt::LeftToRight);
+        label->setTextFormat(Qt::AutoText);
+        label->setScaledContents(false);
+        label->setWordWrap(false);
         TicTacToe->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(TicTacToe);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -118,6 +136,7 @@ public:
         toolButton_22->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("TicTacToe", "3X3", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("TicTacToe", "4X4", nullptr));
+        label->setText(QString());
     } // retranslateUi
 
 };
