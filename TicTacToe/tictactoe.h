@@ -2,7 +2,6 @@
 #define TICTACTOE_H
 
 #include <QMainWindow>
-#include <QToolButton>
 #include <QPushButton>
 #include <array>
 #include <QSignalMapper>
@@ -26,6 +25,8 @@ public:
 private:
     void text_initializer();
     bool win(size_t, size_t);
+    bool score(const char&);
+    void reset();
 
 private slots:
     void boxClicked(const int&);
@@ -33,12 +34,14 @@ private slots:
 private:
     Ui::TicTacToe *ui;
 
+    int player1_score;
+    int player2_score;
     QFont font;
     QSignalMapper *signalMapper;
     QPushButton *Button[9];
 
     char flag;
-    array <array<char, dem>, dem> grid;
+    array<array<char, dem>, dem> grid;
 };
 
 #endif // TICTACTOE_H

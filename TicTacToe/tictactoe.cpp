@@ -1,14 +1,12 @@
 #include "tictactoe.h"
 #include "ui_tictactoe.h"
-#include <string>
-#include <sstream>
 #include <QMessageBox>
 
 using namespace std;
 
 TicTacToe::TicTacToe(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::TicTacToe), flag(NULL)
+    ui(new Ui::TicTacToe), flag(NULL), player1_score(0), player2_score(0)
 {
     ui->setupUi(this);
     signalMapper = new QSignalMapper(this);
@@ -109,10 +107,40 @@ void TicTacToe::boxClicked(const int& id)
 
     grid[i][j] = flag;
 
-    if(win(i, j))
-        QApplication::quit();
-
     Button[id]->setEnabled(false);
+
+    if(win(i,j))
+       score(flag);
+}
+
+void TicTacToe::reset()
+{
+    for (size_t i = 0; i < 3; i++)
+        for(size_t j = 0; j < 3; j++)
+            grid[i][j] = NULL;
+
+    for(size_t i = 0; i < 9; i++)
+    {
+        Button[i]->setEnabled(true);
+        Button[i]->setText("");
+    }
+}
+
+bool TicTacToe::score(const char& winner)
+{
+    if(winner == 'X')
+       player1_score++;
+    else if(winner == 'O')
+       player2_score++;
+
+    ui->lcdNumber_1->display(player1_score);
+    ui->lcdNumber_2->display(player2_score);
+
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "CONGRADULATION", tr("Do you want to continue?"), QMessageBox::Yes|QMessageBox::No);
+    if(reply == QMessageBox::Yes)
+        reset();
+    if(reply == QMessageBox::No)
+        QApplication::quit();
 }
 
 void TicTacToe::text_initializer()

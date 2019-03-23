@@ -19,6 +19,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,9 +40,15 @@ public:
     QPushButton *pushButton_8;
     QPushButton *pushButton_7;
     QWidget *tab_2;
-    QLCDNumber *lcdNumber;
-    QLCDNumber *lcdNumber_2;
     QLabel *label;
+    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *label_3;
+    QLCDNumber *lcdNumber_2;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *label_2;
+    QLCDNumber *lcdNumber_1;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -55,7 +62,7 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(170, 20, 471, 471));
+        tabWidget->setGeometry(QRect(170, 20, 471, 501));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         pushButton_1 = new QPushButton(tab);
@@ -89,19 +96,49 @@ public:
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         tabWidget->addTab(tab_2, QString());
-        lcdNumber = new QLCDNumber(centralWidget);
-        lcdNumber->setObjectName(QString::fromUtf8("lcdNumber"));
-        lcdNumber->setGeometry(QRect(30, 220, 91, 61));
-        lcdNumber_2 = new QLCDNumber(centralWidget);
-        lcdNumber_2->setObjectName(QString::fromUtf8("lcdNumber_2"));
-        lcdNumber_2->setGeometry(QRect(670, 230, 91, 61));
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(260, 510, 261, 71));
+        label->setGeometry(QRect(260, 540, 261, 71));
         label->setLayoutDirection(Qt::LeftToRight);
         label->setTextFormat(Qt::AutoText);
         label->setScaledContents(false);
         label->setWordWrap(false);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(660, 180, 111, 111));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        label_3 = new QLabel(layoutWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        verticalLayout_3->addWidget(label_3);
+
+        lcdNumber_2 = new QLCDNumber(layoutWidget);
+        lcdNumber_2->setObjectName(QString::fromUtf8("lcdNumber_2"));
+
+        verticalLayout_3->addWidget(lcdNumber_2);
+
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(30, 170, 111, 111));
+        verticalLayout_2 = new QVBoxLayout(widget);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(widget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        verticalLayout_2->addWidget(label_2);
+
+        lcdNumber_1 = new QLCDNumber(widget);
+        lcdNumber_1->setObjectName(QString::fromUtf8("lcdNumber_1"));
+
+        verticalLayout_2->addWidget(lcdNumber_1);
+
         TicTacToe->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(TicTacToe);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -137,6 +174,8 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("TicTacToe", "3X3", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("TicTacToe", "4X4", nullptr));
         label->setText(QString());
+        label_3->setText(QApplication::translate("TicTacToe", "    Player 2", nullptr));
+        label_2->setText(QApplication::translate("TicTacToe", "    Player 1", nullptr));
     } // retranslateUi
 
 };
