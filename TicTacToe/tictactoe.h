@@ -2,7 +2,10 @@
 #define TICTACTOE_H
 
 #include <QMainWindow>
+#include <QToolButton>
+#include <QPushButton>
 #include <array>
+#include <QSignalMapper>
 
 using namespace std;
 
@@ -24,26 +27,11 @@ private:
     void text_initializer();
 
 private slots:
-    void on_toolButton_11_clicked();
-
-    void on_toolButton_12_clicked();
-
-    void on_toolButton_13_clicked();
-
-    void on_toolButton_21_clicked();
-
-    void on_toolButton_22_clicked();
-
-    void on_toolButton_23_clicked();
-
-    void on_toolButton_31_clicked();
-
-    void on_toolButton_32_clicked();
-
-    void on_toolButton_33_clicked();
+    void digitClicked(const QString&);
 
 private:
     Ui::TicTacToe *ui;
+    QSignalMapper *signalMapper;
 
     int flag;
     array <array<int, dem>, dem> grid;

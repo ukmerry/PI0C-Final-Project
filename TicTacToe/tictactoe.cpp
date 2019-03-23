@@ -1,6 +1,8 @@
 #include "tictactoe.h"
 #include "ui_tictactoe.h"
-#include <QColor>
+#include <string>
+#include <sstream>
+#include <QMessageBox>
 
 using namespace std;
 
@@ -9,7 +11,44 @@ TicTacToe::TicTacToe(QWidget *parent) :
     ui(new Ui::TicTacToe), flag(int())
 {
     ui->setupUi(this);
-    text_initializer();
+    signalMapper = new QSignalMapper(this);
+
+    connect(ui->pushButton_1, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(ui->pushButton_1, "0,0");
+
+    connect(ui->pushButton_2, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(ui->pushButton_2, "0,1");
+
+    connect(ui->pushButton_3, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(ui->pushButton_3, "0,2");
+
+    connect(ui->pushButton_4, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(ui->pushButton_4, "1,0");
+
+    connect(ui->pushButton_5, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(ui->pushButton_5, "1,1");
+
+    connect(ui->pushButton_6, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(ui->pushButton_6, "1,2");
+
+    connect(ui->pushButton_7, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(ui->pushButton_7, "2,0");
+
+    connect(ui->pushButton_8, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(ui->pushButton_8, "2,1");
+
+    connect(ui->pushButton_9, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(ui->pushButton_9, "2,2");
+
+    connect(signalMapper, SIGNAL(mapped(const QString&)), this, SLOT(digitClicked(const QString&)));
+
+}
+
+void TicTacToe::digitClicked(const QString& id)
+{
+    int i = id.split(",").at(0).toInt();
+    int j = id.split(",").at(1).toInt();
+    ui->lcdNumber->display(i);
 }
 
 void TicTacToe::text_initializer()
@@ -21,206 +60,7 @@ void TicTacToe::text_initializer()
     ui->label->setText("<font color='blue'>Blue Turn</font>");
 }
 
-
 TicTacToe::~TicTacToe()
 {
     delete ui;
-}
-
-void TicTacToe::on_toolButton_11_clicked()
-{
-    grid[0][0] = flag;
-
-       if (flag == 1)
-       {
-           ui->toolButton_11->setPalette(Qt::red);
-           ui->toolButton_11->setAutoFillBackground(true);
-           flag = 0;
-           ui->label->setText("<font color = 'blue'>Blue Turn</font>");
-       }
-       else if(flag == 0)
-       {
-           ui->toolButton_11->setPalette(Qt::blue);
-           ui->toolButton_11->setAutoFillBackground(true);
-           flag = 1;
-           ui->label->setText("<font color = 'red'>Red Turn</font>");
-       }
-
-    ui->toolButton_11->setEnabled(false);
-}
-
-void TicTacToe::on_toolButton_12_clicked()
-{
-    grid[0][1] = flag;
-
-    if (flag == 1)
-    {
-        ui->toolButton_12->setPalette(Qt::red);
-        ui->toolButton_12->setAutoFillBackground(true);
-        flag = 0;
-        ui->label->setText("<font color = 'blue'>Blue Turn</font>");
-    }
-    else if(flag == 0)
-    {
-        ui->toolButton_12->setPalette(Qt::blue);
-        ui->toolButton_12->setAutoFillBackground(true);
-        flag = 1;
-        ui->label->setText("<font color = 'red'>Red Turn</font>");
-    }
-
-    ui->toolButton_12->setEnabled(false);
-}
-
-void TicTacToe::on_toolButton_13_clicked()
-{
-    grid[0][2] = flag;
-
-    if (flag == 1)
-    {
-        ui->toolButton_13->setPalette(Qt::red);
-        ui->toolButton_13->setAutoFillBackground(true);
-        flag = 0;
-        ui->label->setText("<font color = 'blue'>Blue Turn</font>");
-    }
-    else if(flag == 0)
-    {
-        ui->toolButton_13->setPalette(Qt::blue);
-        ui->toolButton_13->setAutoFillBackground(true);
-        flag = 1;
-        ui->label->setText("<font color = 'red'>Red Turn</font>");
-    }
-
-    ui->toolButton_13->setEnabled(false);
-}
-
-void TicTacToe::on_toolButton_21_clicked()
-{
-    grid[1][0] = flag;
-
-    if (flag == 1)
-    {
-        ui->toolButton_21->setPalette(Qt::red);
-        ui->toolButton_21->setAutoFillBackground(true);
-        flag = 0;
-        ui->label->setText("<font color = 'blue'>Blue Turn</font>");
-    }
-    else if(flag == 0)
-    {
-        ui->toolButton_21->setPalette(Qt::blue);
-        ui->toolButton_21->setAutoFillBackground(true);
-        flag = 1;
-        ui->label->setText("<font color = 'red'>Red Turn</font>");
-    }
-
-    ui->toolButton_21->setEnabled(false);
-}
-
-void TicTacToe::on_toolButton_22_clicked()
-{
-    grid[1][1] = flag;
-
-    if (flag == 1)
-    {
-        ui->toolButton_22->setPalette(Qt::red);
-        ui->toolButton_22->setAutoFillBackground(true);
-        flag = 0;
-        ui->label->setText("<font color = 'blue'>Blue Turn</font>");
-    }
-    else if(flag == 0)
-    {
-        ui->toolButton_22->setPalette(Qt::blue);
-        ui->toolButton_22->setAutoFillBackground(true);
-        flag = 1;
-        ui->label->setText("<font color = 'red'>Red Turn</font>");
-    }
-
-    ui->toolButton_22->setEnabled(false);
-}
-
-void TicTacToe::on_toolButton_23_clicked()
-{
-    grid[1][2] = flag;
-
-    if (flag == 1)
-    {
-        ui->toolButton_23->setPalette(Qt::red);
-        ui->toolButton_23->setAutoFillBackground(true);
-        flag = 0;
-        ui->label->setText("<font color = 'blue'>Blue Turn</font>");
-    }
-    else if(flag == 0)
-    {
-        ui->toolButton_23->setPalette(Qt::blue);
-        ui->toolButton_23->setAutoFillBackground(true);
-        flag = 1;
-        ui->label->setText("<font color = 'red'>Red Turn</font>");
-    }
-
-    ui->toolButton_23->setEnabled(false);
-}
-
-void TicTacToe::on_toolButton_31_clicked()
-{
-    grid[2][0] = flag;
-
-    if (flag == 1)
-    {
-        ui->toolButton_31->setPalette(Qt::red);
-        ui->toolButton_31->setAutoFillBackground(true);
-        flag = 0;
-        ui->label->setText("<font color = 'blue'>Blue Turn</font>");
-    }
-    else if(flag == 0)
-    {
-        ui->toolButton_31->setPalette(Qt::blue);
-        ui->toolButton_31->setAutoFillBackground(true);
-        flag = 1;
-        ui->label->setText("<font color = 'red'>Red Turn</font>");
-    }
-
-    ui->toolButton_31->setEnabled(false);
-}
-
-void TicTacToe::on_toolButton_32_clicked()
-{
-    grid[2][1] = flag;
-
-    if (flag == 1)
-    {
-        ui->toolButton_32->setPalette(Qt::red);
-        ui->toolButton_32->setAutoFillBackground(true);
-        flag = 0;
-        ui->label->setText("<font color = 'blue'>Blue Turn</font>");
-    }
-    else if(flag == 0)
-    {
-        ui->toolButton_32->setPalette(Qt::blue);
-        ui->toolButton_32->setAutoFillBackground(true);
-        flag = 1;
-        ui->label->setText("<font color = 'red'>Red Turn</font>");
-    }
-
-    ui->toolButton_32->setEnabled(false);
-}
-
-void TicTacToe::on_toolButton_33_clicked()
-{
-    grid[2][2] = flag;
-
-    if (flag == 1)
-    {
-        ui->toolButton_33->setPalette(Qt::red);
-        ui->toolButton_33->setAutoFillBackground(true);
-        flag = 0;
-        ui->label->setText("<font color = 'blue'>Blue Turn</font>");
-    }
-    else if(flag == 0)
-    {
-        ui->toolButton_33->setPalette(Qt::blue);
-        ui->toolButton_33->setAutoFillBackground(true);
-        flag = 1;
-        ui->label->setText("<font color = 'red'>Red Turn</font>");
-    }
-
-    ui->toolButton_33->setEnabled(false);
 }

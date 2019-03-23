@@ -15,10 +15,10 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
-#include <QtWidgets/QToolButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -29,15 +29,15 @@ public:
     QWidget *centralWidget;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QToolButton *toolButton_31;
-    QToolButton *toolButton_33;
-    QToolButton *toolButton_32;
-    QToolButton *toolButton_13;
-    QToolButton *toolButton_23;
-    QToolButton *toolButton_21;
-    QToolButton *toolButton_11;
-    QToolButton *toolButton_12;
-    QToolButton *toolButton_22;
+    QPushButton *pushButton_1;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_4;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_9;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_7;
     QWidget *tab_2;
     QLCDNumber *lcdNumber;
     QLCDNumber *lcdNumber_2;
@@ -50,41 +50,41 @@ public:
     {
         if (TicTacToe->objectName().isEmpty())
             TicTacToe->setObjectName(QString::fromUtf8("TicTacToe"));
-        TicTacToe->resize(816, 576);
+        TicTacToe->resize(789, 684);
         centralWidget = new QWidget(TicTacToe);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(160, 0, 471, 451));
+        tabWidget->setGeometry(QRect(170, 20, 471, 471));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
-        toolButton_31 = new QToolButton(tab);
-        toolButton_31->setObjectName(QString::fromUtf8("toolButton_31"));
-        toolButton_31->setGeometry(QRect(20, 270, 141, 131));
-        toolButton_33 = new QToolButton(tab);
-        toolButton_33->setObjectName(QString::fromUtf8("toolButton_33"));
-        toolButton_33->setGeometry(QRect(300, 270, 141, 131));
-        toolButton_32 = new QToolButton(tab);
-        toolButton_32->setObjectName(QString::fromUtf8("toolButton_32"));
-        toolButton_32->setGeometry(QRect(160, 270, 141, 131));
-        toolButton_13 = new QToolButton(tab);
-        toolButton_13->setObjectName(QString::fromUtf8("toolButton_13"));
-        toolButton_13->setGeometry(QRect(300, 0, 141, 141));
-        toolButton_23 = new QToolButton(tab);
-        toolButton_23->setObjectName(QString::fromUtf8("toolButton_23"));
-        toolButton_23->setGeometry(QRect(300, 140, 141, 131));
-        toolButton_21 = new QToolButton(tab);
-        toolButton_21->setObjectName(QString::fromUtf8("toolButton_21"));
-        toolButton_21->setGeometry(QRect(20, 140, 141, 131));
-        toolButton_11 = new QToolButton(tab);
-        toolButton_11->setObjectName(QString::fromUtf8("toolButton_11"));
-        toolButton_11->setGeometry(QRect(20, 0, 141, 141));
-        toolButton_12 = new QToolButton(tab);
-        toolButton_12->setObjectName(QString::fromUtf8("toolButton_12"));
-        toolButton_12->setGeometry(QRect(160, 0, 141, 141));
-        toolButton_22 = new QToolButton(tab);
-        toolButton_22->setObjectName(QString::fromUtf8("toolButton_22"));
-        toolButton_22->setGeometry(QRect(160, 140, 141, 131));
+        pushButton_1 = new QPushButton(tab);
+        pushButton_1->setObjectName(QString::fromUtf8("pushButton_1"));
+        pushButton_1->setGeometry(QRect(0, 20, 161, 151));
+        pushButton_2 = new QPushButton(tab);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(150, 20, 161, 151));
+        pushButton_4 = new QPushButton(tab);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_4->setGeometry(QRect(0, 160, 161, 151));
+        pushButton_6 = new QPushButton(tab);
+        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
+        pushButton_6->setGeometry(QRect(300, 160, 161, 151));
+        pushButton_5 = new QPushButton(tab);
+        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
+        pushButton_5->setGeometry(QRect(150, 160, 161, 151));
+        pushButton_3 = new QPushButton(tab);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(300, 20, 161, 151));
+        pushButton_9 = new QPushButton(tab);
+        pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
+        pushButton_9->setGeometry(QRect(300, 300, 161, 151));
+        pushButton_8 = new QPushButton(tab);
+        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
+        pushButton_8->setGeometry(QRect(150, 300, 161, 151));
+        pushButton_7 = new QPushButton(tab);
+        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
+        pushButton_7->setGeometry(QRect(0, 300, 161, 151));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
@@ -97,7 +97,7 @@ public:
         lcdNumber_2->setGeometry(QRect(670, 230, 91, 61));
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(270, 450, 261, 71));
+        label->setGeometry(QRect(260, 510, 261, 71));
         label->setLayoutDirection(Qt::LeftToRight);
         label->setTextFormat(Qt::AutoText);
         label->setScaledContents(false);
@@ -105,7 +105,7 @@ public:
         TicTacToe->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(TicTacToe);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 816, 22));
+        menuBar->setGeometry(QRect(0, 0, 789, 22));
         TicTacToe->setMenuBar(menuBar);
         mainToolBar = new QToolBar(TicTacToe);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -125,15 +125,15 @@ public:
     void retranslateUi(QMainWindow *TicTacToe)
     {
         TicTacToe->setWindowTitle(QApplication::translate("TicTacToe", "TicTacToe", nullptr));
-        toolButton_31->setText(QString());
-        toolButton_33->setText(QString());
-        toolButton_32->setText(QString());
-        toolButton_13->setText(QString());
-        toolButton_23->setText(QString());
-        toolButton_21->setText(QString());
-        toolButton_11->setText(QString());
-        toolButton_12->setText(QString());
-        toolButton_22->setText(QString());
+        pushButton_1->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
+        pushButton_2->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
+        pushButton_4->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
+        pushButton_6->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
+        pushButton_5->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
+        pushButton_3->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
+        pushButton_9->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
+        pushButton_8->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
+        pushButton_7->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("TicTacToe", "3X3", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("TicTacToe", "4X4", nullptr));
         label->setText(QString());
