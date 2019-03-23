@@ -25,6 +25,7 @@ public:
 
 private:
     void text_initializer();
+    bool win(size_t, size_t);
 
 private slots:
     void boxClicked(const int&);
@@ -36,8 +37,8 @@ private:
     QSignalMapper *signalMapper;
     QPushButton *Button[9];
 
-    int flag;
-    array <array<int, dem>, dem> grid;
+    char flag;
+    array <array<char, dem>, dem> grid;
 };
 
 #endif // TICTACTOE_H

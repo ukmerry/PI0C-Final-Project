@@ -8,7 +8,7 @@ using namespace std;
 
 TicTacToe::TicTacToe(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::TicTacToe), flag(0)
+    ui(new Ui::TicTacToe), flag(NULL)
 {
     ui->setupUi(this);
     signalMapper = new QSignalMapper(this);
@@ -55,13 +55,32 @@ TicTacToe::TicTacToe(QWidget *parent) :
     connect(signalMapper, SIGNAL(mapped(const int&)), this, SLOT(boxClicked(const int&)));
 }
 
+bool TicTacToe::win(size_t i, size_t j)
+{
+    char mark = grid[i][j];
+
+    if (grid[i][0] == mark && grid[i][1] == mark && grid[i][2] == mark)
+       return true;
+
+    if (grid[0][j] == mark && grid[1][j] == mark && grid[2][j] == mark)
+       return true;
+
+    if (grid[0][0] == mark && grid[1][1] == mark && grid[2][2] == mark)
+       return true;
+
+    if (grid[0][2] == mark && grid[1][1] == mark && grid[2][0] == mark)
+       return true;
+
+    return false;
+}
+
 void TicTacToe::boxClicked(const int& id)
 {
      font = Button[id]->font();
      font.setPointSize(140);
      Button[id]->setFont(font);
 
-    int i, j;
+    size_t i, j;
     switch(id)
     {
        case 0: i=0;j=0; break;
@@ -75,20 +94,23 @@ void TicTacToe::boxClicked(const int& id)
        case 8: i=2;j=2; break;
     }
 
-    grid[i][j] = flag;
-
-    if (flag == 1 || flag == 0)
+    if (flag == 'X' || flag == 0)
     {
         ui->label->setText("O Turn");
         Button[id]->setText("X");
-        flag = 2;
+        flag = 'O';
     }
-    else if(flag == 2 || flag == 0)
+    else if(flag == 'O' || flag == 0)
     {
         ui->label->setText("X Turn");
         Button[id]->setText("O");
-        flag = 1;
+        flag = 'X';
     }
+
+    grid[i][j] = flag;
+
+    if(win(i, j))
+        QApplication::quit();
 
     Button[id]->setEnabled(false);
 }
