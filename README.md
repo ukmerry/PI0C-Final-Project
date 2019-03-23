@@ -3,7 +3,7 @@ Please go check them out
 \
 Assignment 3: https://github.com/ukmerry/PIC10C-Assignment-3.git
 \
-Assignment 2:
+Assignment 2: https://github.com/ukmerry/PIC10C-GradeCalculator.git
 \
 Assignment 1: https://github.com/ukmerry/PIC-10C-Assignment1.git
 
