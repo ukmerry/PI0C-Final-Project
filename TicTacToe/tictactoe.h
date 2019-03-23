@@ -2,6 +2,11 @@
 #define TICTACTOE_H
 
 #include <QMainWindow>
+#include <array>
+
+using namespace std;
+
+const int dem = 3;
 
 namespace Ui {
 class TicTacToe;
@@ -17,6 +22,7 @@ public:
 
 private:
     Ui::TicTacToe *ui;
+    array <array<int, dem>, dem> grid;
 };
 
 #endif // TICTACTOE_H
