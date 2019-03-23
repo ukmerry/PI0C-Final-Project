@@ -84,7 +84,7 @@ bool TicTacToe::win(size_t i, size_t j)
 void TicTacToe::boxClicked(const int& id)
 {
      font = Button[id]->font();
-     font.setPointSize(140);
+     font.setPointSize(100);
      Button[id]->setFont(font);
 
     size_t i, j;

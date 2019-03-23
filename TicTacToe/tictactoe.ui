@@ -20,7 +20,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>270</x>
       <y>20</y>
       <width>261</width>
       <height>71</height>
@@ -328,7 +328,7 @@
     <zorder>pushButton_9</zorder>
     <zorder>line_5</zorder>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -357,7 +357,7 @@
      <x>0</x>
      <y>0</y>
      <width>537</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
