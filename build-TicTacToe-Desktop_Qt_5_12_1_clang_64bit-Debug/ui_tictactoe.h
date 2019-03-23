@@ -125,15 +125,15 @@ public:
     void retranslateUi(QMainWindow *TicTacToe)
     {
         TicTacToe->setWindowTitle(QApplication::translate("TicTacToe", "TicTacToe", nullptr));
-        pushButton_1->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
-        pushButton_2->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
-        pushButton_4->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
-        pushButton_6->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
-        pushButton_5->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
-        pushButton_3->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
-        pushButton_9->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
-        pushButton_8->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
-        pushButton_7->setText(QApplication::translate("TicTacToe", "PushButton", nullptr));
+        pushButton_1->setText(QString());
+        pushButton_2->setText(QString());
+        pushButton_4->setText(QString());
+        pushButton_6->setText(QString());
+        pushButton_5->setText(QString());
+        pushButton_3->setText(QString());
+        pushButton_9->setText(QString());
+        pushButton_8->setText(QString());
+        pushButton_7->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("TicTacToe", "3X3", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("TicTacToe", "4X4", nullptr));
         label->setText(QString());

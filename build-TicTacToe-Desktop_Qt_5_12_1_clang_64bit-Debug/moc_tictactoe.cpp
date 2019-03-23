@@ -57,7 +57,7 @@ static const uint qt_meta_data_TicTacToe[] = {
        1,    1,   19,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::Int,    2,
 
        0        // eod
 };
@@ -68,7 +68,7 @@ void TicTacToe::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         auto *_t = static_cast<TicTacToe *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->digitClicked((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 0: _t->digitClicked((*reinterpret_cast< const int(*)>(_a[1]))); break;
         default: ;
         }
     }

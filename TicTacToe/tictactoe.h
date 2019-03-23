@@ -27,11 +27,13 @@ private:
     void text_initializer();
 
 private slots:
-    void digitClicked(const QString&);
+    void digitClicked(const int&);
 
 private:
     Ui::TicTacToe *ui;
+    QFont font;
     QSignalMapper *signalMapper;
+    QPushButton *Button[9];
 
     int flag;
     array <array<int, dem>, dem> grid;
