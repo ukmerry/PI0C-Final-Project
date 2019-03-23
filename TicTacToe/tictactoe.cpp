@@ -55,7 +55,7 @@ TicTacToe::TicTacToe(QWidget *parent) :
 
 void TicTacToe::endgame()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, "We have a result", tr("Do you want to continue?"), QMessageBox::Yes|QMessageBox::No);
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Message", tr("Do you want to continue?"), QMessageBox::Yes|QMessageBox::No);
     if(reply == QMessageBox::Yes)
         reset();
     if(reply == QMessageBox::No)
@@ -84,7 +84,7 @@ bool TicTacToe::win(size_t i, size_t j)
 void TicTacToe::boxClicked(const int& id)
 {
      font = Button[id]->font();
-     font.setPointSize(140);
+     font.setPointSize(100);
      Button[id]->setFont(font);
 
     size_t i, j;
@@ -168,7 +168,7 @@ void TicTacToe::text_initializer()
 {
     ui->label->setAlignment(Qt::AlignCenter);
     QFont f("", 50);
-    QFont g("", 20);
+    QFont g("", 16);
     QFontMetrics fm(f);
     QFontMetrics gm(g);
 

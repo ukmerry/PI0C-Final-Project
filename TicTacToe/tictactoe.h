@@ -8,8 +8,6 @@
 
 using namespace std;
 
-const int dem = 3;
-
 namespace Ui {
 class TicTacToe;
 }
@@ -43,7 +41,7 @@ private:
     QPushButton *Button[9];
 
     char flag;
-    array<array<char, dem>, dem> grid;
+    array<array<char, 3>, 3> grid;
 };
 
 #endif // TICTACTOE_H
