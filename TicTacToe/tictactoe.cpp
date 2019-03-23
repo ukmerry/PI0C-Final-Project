@@ -52,10 +52,10 @@ TicTacToe::TicTacToe(QWidget *parent) :
     connect(Button[8], SIGNAL(clicked()), signalMapper, SLOT(map()));
     signalMapper->setMapping(Button[8], 8);
 
-    connect(signalMapper, SIGNAL(mapped(const int&)), this, SLOT(digitClicked(const int&)));
+    connect(signalMapper, SIGNAL(mapped(const int&)), this, SLOT(boxClicked(const int&)));
 }
 
-void TicTacToe::digitClicked(const int& id)
+void TicTacToe::boxClicked(const int& id)
 {
      font = Button[id]->font();
      font.setPointSize(140);
@@ -79,11 +79,13 @@ void TicTacToe::digitClicked(const int& id)
 
     if (flag == 1 || flag == 0)
     {
+        ui->label->setText("O Turn");
         Button[id]->setText("X");
         flag = 2;
     }
     else if(flag == 2 || flag == 0)
     {
+        ui->label->setText("X Turn");
         Button[id]->setText("O");
         flag = 1;
     }
@@ -97,7 +99,7 @@ void TicTacToe::text_initializer()
     QFont f("", 50);
     QFontMetrics fm(f);
     ui->label->setFont(f);
-    ui->label->setText("<font color='blue'>O Turn</font>");
+    ui->label->setText("X Turn");
 }
 
 TicTacToe::~TicTacToe()

@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_TicTacToe_t {
     QByteArrayData data[3];
-    char stringdata0[24];
+    char stringdata0[22];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,11 +32,11 @@ struct qt_meta_stringdata_TicTacToe_t {
 static const qt_meta_stringdata_TicTacToe_t qt_meta_stringdata_TicTacToe = {
     {
 QT_MOC_LITERAL(0, 0, 9), // "TicTacToe"
-QT_MOC_LITERAL(1, 10, 12), // "digitClicked"
-QT_MOC_LITERAL(2, 23, 0) // ""
+QT_MOC_LITERAL(1, 10, 10), // "boxClicked"
+QT_MOC_LITERAL(2, 21, 0) // ""
 
     },
-    "TicTacToe\0digitClicked\0"
+    "TicTacToe\0boxClicked\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,7 +68,7 @@ void TicTacToe::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         auto *_t = static_cast<TicTacToe *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->digitClicked((*reinterpret_cast< const int(*)>(_a[1]))); break;
+        case 0: _t->boxClicked((*reinterpret_cast< const int(*)>(_a[1]))); break;
         default: ;
         }
     }
