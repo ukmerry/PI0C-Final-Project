@@ -53,6 +53,15 @@ TicTacToe::TicTacToe(QWidget *parent) :
     connect(signalMapper, SIGNAL(mapped(const int&)), this, SLOT(boxClicked(const int&)));
 }
 
+void TicTacToe::endgame()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "We have a result", tr("Do you want to continue?"), QMessageBox::Yes|QMessageBox::No);
+    if(reply == QMessageBox::Yes)
+        reset();
+    if(reply == QMessageBox::No)
+        QApplication::quit();
+}
+
 bool TicTacToe::win(size_t i, size_t j)
 {
     char mark = grid[i][j];
@@ -109,8 +118,24 @@ void TicTacToe::boxClicked(const int& id)
 
     Button[id]->setEnabled(false);
 
-    if(win(i,j))
+    if(array_full())
+       endgame();
+    else if(win(i,j))
        score(flag);
+}
+
+bool TicTacToe::array_full()
+{
+    for (size_t i = 0; i < 3; ++i)
+    {
+        for (size_t j = 0; j < 3; ++j)
+        {
+            if(grid[i][j] == NULL)
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void TicTacToe::reset()
@@ -136,18 +161,19 @@ bool TicTacToe::score(const char& winner)
     ui->lcdNumber_1->display(player1_score);
     ui->lcdNumber_2->display(player2_score);
 
-    QMessageBox::StandardButton reply = QMessageBox::question(this, "CONGRADULATION", tr("Do you want to continue?"), QMessageBox::Yes|QMessageBox::No);
-    if(reply == QMessageBox::Yes)
-        reset();
-    if(reply == QMessageBox::No)
-        QApplication::quit();
+    endgame();
 }
 
 void TicTacToe::text_initializer()
 {
     ui->label->setAlignment(Qt::AlignCenter);
     QFont f("", 50);
+    QFont g("", 20);
     QFontMetrics fm(f);
+    QFontMetrics gm(g);
+
+    ui->label_2->setFont(g);
+    ui->label_3->setFont(g);
     ui->label->setFont(f);
     ui->label->setText("X Turn");
 }
