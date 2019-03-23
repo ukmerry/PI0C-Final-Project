@@ -6,7 +6,7 @@ using namespace std;
 
 TicTacToe::TicTacToe(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::TicTacToe), flag(0)
+    ui(new Ui::TicTacToe), flag(NULL)
 {
     ui->setupUi(this);
 }
@@ -21,18 +21,20 @@ void TicTacToe::on_toolButton_11_clicked()
 {
     grid[0][0] = flag;
 
-    if (flag == 1)
-    {
-        ui->toolButton_11->setPalette(Qt::red);
-        ui->toolButton_11->setAutoFillBackground(true);
-        flag = 0;
-    }
-    else if(flag == 0)
-    {
-        ui->toolButton_11->setPalette(Qt::blue);
-        ui->toolButton_11->setAutoFillBackground(true);
-        flag = 1;
-    }
+       if (flag == 1)
+       {
+           ui->toolButton_11->setPalette(Qt::red);
+           ui->toolButton_11->setAutoFillBackground(true);
+           flag = 0;
+       }
+       else if(flag == 0)
+       {
+           ui->toolButton_11->setPalette(Qt::blue);
+           ui->toolButton_11->setAutoFillBackground(true);
+           flag = 1;
+       }
+
+    ui->toolButton_11->setEnabled(false);
 }
 
 void TicTacToe::on_toolButton_12_clicked()
@@ -51,6 +53,8 @@ void TicTacToe::on_toolButton_12_clicked()
         ui->toolButton_12->setAutoFillBackground(true);
         flag = 1;
     }
+
+    ui->toolButton_12->setEnabled(false);
 }
 
 void TicTacToe::on_toolButton_13_clicked()
@@ -69,6 +73,8 @@ void TicTacToe::on_toolButton_13_clicked()
         ui->toolButton_13->setAutoFillBackground(true);
         flag = 1;
     }
+
+    ui->toolButton_13->setEnabled(false);
 }
 
 void TicTacToe::on_toolButton_21_clicked()
@@ -87,6 +93,8 @@ void TicTacToe::on_toolButton_21_clicked()
         ui->toolButton_21->setAutoFillBackground(true);
         flag = 1;
     }
+
+    ui->toolButton_21->setEnabled(false);
 }
 
 void TicTacToe::on_toolButton_22_clicked()
@@ -105,6 +113,8 @@ void TicTacToe::on_toolButton_22_clicked()
         ui->toolButton_22->setAutoFillBackground(true);
         flag = 1;
     }
+
+    ui->toolButton_22->setEnabled(false);
 }
 
 void TicTacToe::on_toolButton_23_clicked()
@@ -123,6 +133,8 @@ void TicTacToe::on_toolButton_23_clicked()
         ui->toolButton_23->setAutoFillBackground(true);
         flag = 1;
     }
+
+    ui->toolButton_23->setEnabled(false);
 }
 
 void TicTacToe::on_toolButton_31_clicked()
@@ -141,6 +153,8 @@ void TicTacToe::on_toolButton_31_clicked()
         ui->toolButton_31->setAutoFillBackground(true);
         flag = 1;
     }
+
+    ui->toolButton_31->setEnabled(false);
 }
 
 void TicTacToe::on_toolButton_32_clicked()
@@ -159,6 +173,8 @@ void TicTacToe::on_toolButton_32_clicked()
         ui->toolButton_32->setAutoFillBackground(true);
         flag = 1;
     }
+
+    ui->toolButton_32->setEnabled(false);
 }
 
 void TicTacToe::on_toolButton_33_clicked()
@@ -177,4 +193,6 @@ void TicTacToe::on_toolButton_33_clicked()
         ui->toolButton_33->setAutoFillBackground(true);
         flag = 1;
     }
+
+    ui->toolButton_33->setEnabled(false);
 }
