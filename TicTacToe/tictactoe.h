@@ -23,10 +23,9 @@ public:
 private:
     void text_initializer();
     bool win(size_t, size_t);
-    bool score(const char&);
+    void  score(const char&);
     bool array_full();
     void reset();
-    void endgame();
 
 private slots:
     void boxClicked(const int&);
