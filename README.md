@@ -176,7 +176,7 @@ PIC10C concept used:
 * Generic algorithm and iterator (used in reset() and array_full() functions)
 * Make file
 # Comment
-There are other helper functions that I did not mention because their syntax is simple. Also, I've done some of the stylesheet of my widgets. For instance, if you place your cursor on the grid, it will change to a hand shape cursor. The app is ready. If you are using Windows, there is a shortcut in the first page of the repository that you can lauch the app directly or you can go into [folder](build-TicTacToe-Desktop_Qt_5_6_2_MinGW_32bit-Release/release) to find the .exe file.\
+There are other helper functions that I did not mention because their syntax is simple. Also, I've done some of the stylesheet of my widgets. For instance, if you place your cursor on the grid, it will change to a hand shape cursor. The app is ready. If you are using Windows, there is a shortcut in the first page of the repository that you can lauch the app directly or you can go into [build-TicTacToe-Desktop_Qt_5_6_2_MinGW_32bit-Release](build-TicTacToe-Desktop_Qt_5_6_2_MinGW_32bit-Release/release) to find the .exe file.\
 Codes are maily done in [tictactoe.h](TicTacToe/tictactoe.h) and [tictactoe.cpp](TicTacToe/tictactoe.cpp). Please check those two files.
 
 # Sample Output
