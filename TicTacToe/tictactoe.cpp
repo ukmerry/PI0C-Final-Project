@@ -118,6 +118,9 @@ bool TicTacToe::win(size_t i, size_t j)
 void TicTacToe::boxClicked(const int& id)
 {
      QMessageBox::StandardButton reply;
+     font = Button[id]->font();
+     font.setPointSize(100);
+     Button[id]->setFont(font);
 
     //mark the boxes with 'x' or 'o'
     //then make the box unclickable
@@ -228,13 +231,6 @@ void TicTacToe::text_initializer()
     ui->label_3->setFont(g);
     ui->label->setFont(f);
     ui->label->setText("X Turn");
-
-    for(auto it = std::begin(Button); it != std::end(Button); ++it)
-    {
-        font = (*it)->font();
-        font.setPointSize(100);
-        (*it)->setFont(font);
-    }
 }
 
 TicTacToe::~TicTacToe()
