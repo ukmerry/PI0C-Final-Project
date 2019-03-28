@@ -51,6 +51,7 @@ bool TicTacToe::win(size_t i, size_t j)
 
     if (grid[i][0] == mark && grid[i][1] == mark && grid[i][2] == mark)
     {
+        //highlight the boxes
         switch(i)
         {
            case 0: Button[0]->setPalette(Qt::red);
@@ -72,6 +73,7 @@ bool TicTacToe::win(size_t i, size_t j)
 
     if (grid[0][j] == mark && grid[1][j] == mark && grid[2][j] == mark)
     {
+        //highlight the boxes
         switch(j)
         {
            case 0: Button[0]->setPalette(Qt::red);
@@ -93,6 +95,7 @@ bool TicTacToe::win(size_t i, size_t j)
 
     if (grid[0][0] == mark && grid[1][1] == mark && grid[2][2] == mark)
     {
+        //highlight the boxes
         Button[0]->setPalette(Qt::red);
         Button[4]->setPalette(Qt::red);
         Button[8]->setPalette(Qt::red);
@@ -102,6 +105,7 @@ bool TicTacToe::win(size_t i, size_t j)
 
     if (grid[0][2] == mark && grid[1][1] == mark && grid[2][0] == mark)
     {
+        //highlight the boxes
         Button[2]->setPalette(Qt::red);
         Button[4]->setPalette(Qt::red);
         Button[6]->setPalette(Qt::red);
@@ -113,9 +117,6 @@ bool TicTacToe::win(size_t i, size_t j)
 
 void TicTacToe::boxClicked(const int& id)
 {
-     font = Button[id]->font();
-     font.setPointSize(100);
-     Button[id]->setFont(font);
      QMessageBox::StandardButton reply;
 
     //mark the boxes with 'x' or 'o'
@@ -173,13 +174,13 @@ void TicTacToe::boxClicked(const int& id)
 }
 
 bool TicTacToe::array_full()
-{
+{    
     //return false if there exists a null box (which means the array is not full)
-    for (size_t i = 0; i < 3; ++i)
+    for (auto it1 = std::begin(grid); it1 != std::end(grid); ++it1)
     {
-        for (size_t j = 0; j < 3; ++j)
+        for (auto it2 = std::begin(*it1); it2 != std::end(*it1); ++it2)
         {
-            if(grid[i][j] == '\0')
+            if(*it2 == '\0')
             return false;
         }
     }
@@ -189,17 +190,18 @@ bool TicTacToe::array_full()
 
 void TicTacToe::reset()
 {
-    //set the 2d array to null
-    for (size_t i = 0; i < 3; i++)
-        for(size_t j = 0; j < 3; j++)
-            grid[i][j] = '\0';
-
-    //make all boxes clickable and clear the marks
-    for(size_t i = 0; i < 9; i++)
+    for (auto it1 = std::begin(grid); it1 != std::end(grid); ++it1)
     {
-        Button[i]->setEnabled(true);
-        Button[i]->setText("");
-        Button[i]->setPalette(Qt::white);
+        for (auto it2 = std::begin(*it1); it2 != std::end(*it1); ++it2)
+            *it2 = '\0';
+    }
+
+    //make all boxes clickable and clear the arks
+    for(auto it = std::begin(Button); it != std::end(Button); ++it)
+    {
+        (*it)->setEnabled(true);
+        (*it)->setText("");
+        (*it)->setPalette(Qt::white);
     }
 }
 
@@ -226,6 +228,13 @@ void TicTacToe::text_initializer()
     ui->label_3->setFont(g);
     ui->label->setFont(f);
     ui->label->setText("X Turn");
+
+    for(auto it = std::begin(Button); it != std::end(Button); ++it)
+    {
+        font = (*it)->font();
+        font.setPointSize(100);
+        (*it)->setFont(font);
+    }
 }
 
 TicTacToe::~TicTacToe()

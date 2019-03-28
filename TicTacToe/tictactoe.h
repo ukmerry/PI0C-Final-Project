@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <array>
+#include <iterator>
 #include <QSignalMapper>
 
 using namespace std;
